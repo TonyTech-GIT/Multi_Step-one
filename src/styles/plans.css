@@ -94,6 +94,8 @@
   margin: 0.6rem auto;
 
   padding: 0.5rem 2rem;
+
+  border-radius: 5px;
 }
 .toggle .outer {
   background-color: var(--primary-color);
@@ -145,5 +147,43 @@
 
     position: relative;
     right: 0rem;
+  }
+
+  .plans__container .plans {
+    display: flex;
+
+    /* height: 30%; */
+  }
+
+  .plans__container .plans .plans__item {
+    padding: 1.2rem 0.3rem 0 0.3rem;
+
+    flex-direction: column;
+
+    width: 50%;
+
+    height: 100%;
+  }
+  .plans__container .plans .plans__item:not(:last-child) {
+    margin-right: 1rem;
+  }
+  .plans__container .plans .plans__item .details {
+    margin-left: 0;
+  }
+  .plans__container .plans .plans__item img {
+    width: 30%;
+  }
+
+  .toggle {
+    margin: 1.5rem auto;
+
+    padding: 0.5rem 5.5rem;
+  }
+
+  .back {
+    position: absolute;
+
+    bottom: 2.6rem;
+    left: 42.4rem;
   }
 }
