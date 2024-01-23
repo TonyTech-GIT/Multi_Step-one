@@ -1,5 +1,4 @@
-// import bg from '../assets/images/bg-sidebar-mobile.svg'
-
+import { Link } from "react-router-dom"
 
 const Personal = () => {
     return (
@@ -54,23 +53,26 @@ const Personal = () => {
                             Name
 
                         </label>
-                        <input type="text" placeholder="e.g. Stephen King" />
+                        <input type="text" placeholder="e.g. Stephen King" required />
                         <label className="field">
                             Email Address
 
                         </label>
-                        <input type="text" placeholder="e.g. stephenking@lorem.com" />
+                        <input type="text" placeholder="e.g. stephenking@lorem.com" required />
                         <label className="field">
                             Phone Number
 
                         </label>
-                        <input type="text" placeholder="e.g. +1 234 567 890" />
+                        <input type="text" placeholder="e.g. +1 234 567 890" required />
                     </div>
                 </div>
 
             </section>
 
-            <button className="btn">Next Step</button>
+            <Link to='/plans'>
+                <button className="btn">Next Step</button>
+            </Link>
+
         </>
 
     )

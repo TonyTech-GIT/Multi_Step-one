@@ -101,13 +101,16 @@
   margin-bottom: 1rem;
 
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 5px;
+
+  color: var(--primary-color);
 }
 .personal__form input::placeholder {
   color: var(--neutral-one);
 }
 .personal__form input:focus {
   outline: none;
+  border: 1px solid var(--secondary-color);
 }
 
 .btn {
@@ -122,6 +125,11 @@
   border-radius: 3px;
 
   color: #eee;
+
+  transition: all 0.3s;
+}
+.btn:hover {
+  opacity: 0.9;
 }
 
 .desk-img div {

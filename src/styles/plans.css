@@ -1,0 +1,149 @@
+.plans__container {
+  background-color: var(--neutral-four);
+  height: 410px;
+  max-width: 100%;
+  width: 60%;
+
+  padding: 1rem 1rem;
+
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+
+  margin: 0 auto;
+
+  position: relative;
+  bottom: 2.6rem;
+}
+
+.plans__container h2 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.plans__container p {
+  margin-block: 1rem;
+  color: var(--neutral-one);
+  line-height: 1.5;
+}
+
+.plans__container .plans .plans__item {
+  display: flex;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  padding: 0.6rem 1rem;
+
+  transition: all 0.3s;
+}
+.plans__container .plans .plans__item .details {
+  margin-left: 0.8rem;
+}
+.plans__container .plans .plans__item img {
+  width: 11%;
+
+  position: relative;
+  bottom: 0.5rem;
+}
+.plans__container .plans .plans__item .title {
+  /* display: inline-block; */
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: var(--primary-color);
+}
+.plans__container .plans .plans__item .price {
+  font-size: 0.7rem;
+
+  color: var(--neutral-one);
+
+  display: block;
+
+  margin-block: 0.15rem;
+}
+
+.plans__container .plans .plans__item:hover {
+  border: 1px solid var(--primary-color);
+}
+
+.plans__container .plans .plans__item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.plans__container .plans .plans__item .discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  display: block; /* Don,t know why this has to be display : block to get the intended result... */
+
+  color: var(--primary-color);
+}
+
+.toggle {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--neutral-three);
+
+  margin: 0.6rem auto;
+
+  padding: 0.5rem 2rem;
+}
+.toggle .outer {
+  background-color: var(--primary-color);
+  height: 20px;
+  width: 45px;
+
+  border-radius: 10px 10px;
+
+  margin-inline: 1rem;
+}
+.toggle .inner {
+  background-color: #eee;
+
+  height: 15px;
+  width: 15px;
+
+  border-radius: 50%;
+
+  position: relative;
+  top: 0.17rem;
+  left: 0.2rem;
+
+  transition: all 0.3s;
+
+  cursor: pointer;
+}
+
+.back-link {
+  color: var(--neutral-one);
+}
+
+.back {
+  position: absolute;
+
+  bottom: -40px;
+  left: 20px;
+}
+
+@media only screen and (min-width: 767px) {
+  .plans__container {
+    width: 100%;
+
+    bottom: 0rem;
+  }
+  .plans__container p {
+    margin-block: 0.5rem 1rem;
+
+    font-size: 0.7rem;
+
+    position: relative;
+    right: 0rem;
+  }
+}
