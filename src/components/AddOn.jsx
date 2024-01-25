@@ -1,13 +1,11 @@
-import arcade from '../assets/images/icon-arcade.svg';
-import advanced from '../assets/images/icon-advanced.svg';
-import pro from '../assets/images/icon-pro.svg';
+
 import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import Item from './Item';
+import AddItem from './AddItem';
 
-const Plans = () => {
+const AddOn = () => {
     const [planToggle, setPlanToggle] = useState(true)
     const [active, setActive] = useState(true)
     const [pricePlan, setPricePlan] = useState(true)
@@ -28,35 +26,35 @@ const Plans = () => {
 
     }
 
-    const innerStyle = {
-        transform: `translateX(${planToggle ? '0px' : '25px'})`,
-    }
-    const activeStyleMonthly = {
-        color: `${active ? 'var(--primary-color)' : 'var(--neutral-one)'}`
-    }
+    // const innerStyle = {
+    //     transform: `translateX(${planToggle ? '0px' : '25px'})`,
+    // }
+    // const activeStyleMonthly = {
+    //     color: `${active ? 'var(--primary-color)' : 'var(--neutral-one)'}`
+    // }
 
-    const activeStyleYearly = {
-        color: `${!active ? 'var(--primary-color)' : 'var(--neutral-one)'}`
-    }
+    // const activeStyleYearly = {
+    //     color: `${!active ? 'var(--primary-color)' : 'var(--neutral-one)'}`
+    // }
 
-    const items = [
+    const addItems = [
         {
-            image: arcade,
-            title: 'Arcade',
+
+            title: 'Online service',
             price: `${pricePlan ? '$9/mo' : '$90/yr'}`,
-            discount: `${!discountPlan ? '2 months free' : ''}`
+            text: `Access to multiplayer games`
         },
         {
-            image: advanced,
-            title: 'Advanced',
+
+            title: 'Larger storage',
             price: `${pricePlan ? '$12/mo' : '$120/yr'}`,
-            discount: `${!discountPlan ? '2 months free' : ''}`
+            text: `Extra 1TB of cloud save`
         },
         {
-            image: pro,
-            title: 'Pro',
+
+            title: 'Customizable profile',
             price: `${pricePlan ? '$15/mo' : '$150/yr'}`,
-            discount: `${!discountPlan ? '2 months free' : ''}`
+            text: `Custom theme on your profile`
         }
     ]
 
@@ -105,17 +103,17 @@ const Plans = () => {
 
                         </div>
                     </div>
-                    <div className="plans__container">
-                        <h2>Select your plan</h2>
-                        <p>you have the option of monthly or yearly billing.</p>
+                    <div className="addon__container">
+                        <h2>Pick add-ons</h2>
+                        <p>Add-ons help enhance your gaming experience.</p>
 
-                        <div className="plans">
-                            {items.map((item, index) => (
-                                <Item
+                        <div className="addons">
+                            {addItems.map((addItem, index) => (
+                                <AddItem
                                     key={index}
                                     setActiveItem={setActiveItem}
-                                    isActive={activeItem === item.title}
-                                    {...item}
+                                    isActive={activeItem === addItem.title}
+                                    {...addItem}
 
                                 />
                             ))}
@@ -123,29 +121,24 @@ const Plans = () => {
 
                         </div>
 
-                        <div className="toggle">
-                            <span className={active ? 'active' : ''} style={activeStyleMonthly}>Monthly</span>
-                            <div className="outer">
-                                <div className="inner" style={innerStyle} onClick={handleToggle}></div>
-                            </div>
-                            <span className={active ? 'active' : ''} style={activeStyleYearly}>Yearly</span>
-                        </div>
+
                     </div>
                 </div>
 
             </section>
 
-            <Link to='/' className='back-link'>
-                <span className='back'>Go Back</span>
+            <Link to='/plans' className='back-link-addon'>
+                <span className='back-addon'>Go Back</span>
 
             </Link>
 
-            <Link to='/add-ons'>
-                <button className="btn">Next Step</button>
+            <Link to='/summary'>
+                <button className="btn-addon">Next Step</button>
             </Link>
 
         </>
     )
 }
 
-export default Plans
+export default AddOn
+

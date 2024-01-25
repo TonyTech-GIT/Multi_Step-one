@@ -74,6 +74,10 @@
   margin-bottom: 0.5rem;
 }
 
+.plans__container .plans .plans__item.active {
+  border: 1px solid var(--primary-color);
+}
+
 .plans__container .plans .plans__item .discount {
   font-size: 0.75rem;
   font-weight: 700;

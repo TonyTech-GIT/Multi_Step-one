@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import Personal from "./components/Personal"
 import Plans from "./components/Plans"
+import AddOn from "./components/AddOn"
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Personal />} />
           <Route path="/plans" element={<Plans />} />
-          <Route path="/add-ons" element={<Personal />} />
+          <Route path="/add-ons" element={<AddOn />} />
           <Route path="/summary" element={<Personal />} />
 
 
