@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const AddItem = ({ title, text, price }) => {
+    const [isChecked, setIsChecked] = useState(false)
+
+    const handleIsChecked = () => {
+        setIsChecked(!isChecked)
+    }
     return (
 
-        <div className={`addon__item `}>
+        <div className={`addon__item ${isChecked ? 'active' : ''}`} >
             <div className='details-container'>
-                <input type="checkbox" />
+                <input type="checkbox" checked={isChecked} onChange={handleIsChecked} />
                 <div className="details">
                     <span className='title'>{title}</span>
 

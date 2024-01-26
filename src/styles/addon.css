@@ -42,6 +42,22 @@
   transition: all 0.3s;
 }
 
+.addon__container .addons .addon__item:hover {
+  border: 1px solid var(--primary-color);
+
+  background-color: var(--neutral-three);
+}
+
+.addon__container .addons .addon__item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.addon__container .addons .addon__item.active {
+  border: 1px solid var(--primary-color);
+
+  background-color: var(--neutral-three);
+}
+
 .addon__container .addons .addon__item .details-container {
   display: flex;
 }
@@ -77,20 +93,6 @@
   margin-block: 0.15rem;
 }
 
-.addon__container .addons .addon__item:hover {
-  border: 1px solid var(--primary-color);
-
-  background-color: var(--neutral-three);
-}
-
-.addon__container .addons .addon__item:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
-.addon__container .addons .addon__item.active {
-  border: 1px solid var(--primary-color);
-}
-
 .back-link-addon {
   color: var(--neutral-one);
 }
@@ -115,9 +117,11 @@
 
   color: #eee;
 
+  cursor: pointer;
+
   transition: all 0.3s;
 }
-.btn:hover {
+.btn-addon:hover {
   opacity: 0.9;
 }
 

@@ -1,39 +1,6 @@
+import { Link } from "react-router-dom"
 
-import { useState } from 'react';
-
-import { Link } from 'react-router-dom';
-
-import AddItem from './AddItem';
-
-const AddOn = () => {
-    const [pricePlan, setPricePlan] = useState(true)
-
-
-
-
-
-
-    const addItems = [
-        {
-
-            title: 'Online service',
-            price: `${pricePlan ? '$1/mo' : '$10/yr'}`,
-            text: `Access to multiplayer games`
-        },
-        {
-
-            title: 'Larger storage',
-            price: `${pricePlan ? '$2/mo' : '$20/yr'}`,
-            text: `Extra 1TB of cloud save`
-        },
-        {
-
-            title: 'Customizable profile',
-            price: `${pricePlan ? '$2/mo' : '$20/yr'}`,
-            text: `Custom theme on your profile`
-        }
-    ]
-
+const Personal = () => {
     return (
         <>
             <section className='personal'>
@@ -79,21 +46,35 @@ const AddOn = () => {
 
                         </div>
                     </div>
-                    <div className="addon__container">
-                        <h2>Pick add-ons</h2>
-                        <p>Add-ons help enhance your gaming experience.</p>
+                    <div className="summary__container">
+                        <h2>Finishing up</h2>
+                        <p>Double-check everything looks OK before confirming.</p>
 
-                        <div className="addons">
-                            {addItems.map((addItem, index) => (
-                                <AddItem
-                                    key={index}
+                        <div className="summary__container-checkout">
+                            <div className="plans">
+                                <div className="info">
+                                    <span>Arcade (Monthly)</span>
+                                    <Link className="plan-link" to='/plans'>Change</Link>
+                                </div>
+                                <span className="plans-price">$9/mo</span>
+                            </div>
 
-                                    {...addItem}
 
-                                />
-                            ))}
+                            <div className="extras">
+                                <div className="first">
+                                    <span className="extras-text">Online service</span>
+                                    <span className="extras-price">+$1/mo</span>
+                                </div>
+                                <div className="second">
+                                    <span className="extras-text">Larger storage</span>
+                                    <span className="extras-price">+$2/mo</span>
+                                </div>
+                            </div>
+                        </div>
 
-
+                        <div className="summary__container-total">
+                            <span className="total-text">Total (per month)</span>
+                            <span className="total-price">+$12/mo</span>
                         </div>
 
 
@@ -102,18 +83,18 @@ const AddOn = () => {
 
             </section>
 
-            <Link to='/plans' className='back-link-addon'>
-                <span className='back-addon'>Go Back</span>
+            <Link to='/add-ons' className='back-link-summary'>
+                <span className='back-summary'>Go Back</span>
 
             </Link>
 
-            <Link to='/summary'>
-                <button className="btn-addon">Next Step</button>
+            <Link to='/plans'>
+                <button className="btn-summary">Confirm</button>
             </Link>
 
         </>
+
     )
 }
 
-export default AddOn
-
+export default Personal
