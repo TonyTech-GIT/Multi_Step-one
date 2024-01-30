@@ -1,19 +1,45 @@
 import arcade from '../assets/images/icon-arcade.svg';
 import advanced from '../assets/images/icon-advanced.svg';
 import pro from '../assets/images/icon-pro.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
+
 import Item from './Item';
 
-const Plans = () => {
-    const [planToggle, setPlanToggle] = useState(true)
+const Plans = ({ setSummaryDetails, setCalToggle }) => {
+    const [planToggle, setPlanToggle] = useState(true, () => {
+
+        // Retrieve the value from localStorage, or default to true if not found
+        const storedValue = localStorage.getItem('planToggle');
+        return storedValue ? JSON.parse(storedValue) : true;
+    })
+
     const [active, setActive] = useState(true)
     const [pricePlan, setPricePlan] = useState(true)
     const [discountPlan, setDiscountPlan] = useState(true)
     const [activeItem, setActiveItem] = useState('');
+    const [activeFunc, setActiveFunc] = useState('')
 
+
+    useEffect(() => {
+        // Save the updated planToggle value to localStorage
+        localStorage.setItem('planToggle', JSON.stringify(planToggle));
+
+        console.log(planToggle);
+
+
+
+    }, [planToggle])
+
+
+    setCalToggle(planToggle)
+    setSummaryDetails(activeFunc)
+
+    // console.log('kinunuunu', activeFunc)
 
     const handleToggle = () => {
         setPlanToggle(!planToggle)
@@ -26,7 +52,17 @@ const Plans = () => {
 
         setActiveItem(activeItem)
 
+        // setSelectedPlan(item)
+
+        // setSummaryDetails({
+        //     selectedCard: activeFunc,
+        //     planToggle: planToggle
+        // })
+
+
     }
+
+
 
     const innerStyle = {
         transform: `translateX(${planToggle ? '0px' : '25px'})`,
@@ -115,6 +151,7 @@ const Plans = () => {
                                     key={index}
                                     setActiveItem={setActiveItem}
                                     isActive={activeItem === item.title}
+                                    setTestFunc={setActiveFunc}
                                     {...item}
 
                                 />
@@ -146,6 +183,11 @@ const Plans = () => {
 
         </>
     )
+}
+
+Plans.propTypes = {
+    setSummaryDetails: PropTypes.func.isRequired,
+    setCalToggle: PropTypes.func.isRequired
 }
 
 export default Plans

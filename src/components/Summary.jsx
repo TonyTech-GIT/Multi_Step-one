@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom"
 
-const Personal = () => {
+import PropTypes from 'prop-types';
+import { useEffect } from "react";
+
+
+const Summary = ({ resData, toggleInfo }) => {
+
+    useEffect(() => {
+        console.log('knnuiin', resData)
+
+        console.log('in summary', toggleInfo);
+    })
+
+
     return (
         <>
             <section className='personal'>
@@ -53,10 +65,17 @@ const Personal = () => {
                         <div className="summary__container-checkout">
                             <div className="plans">
                                 <div className="info">
-                                    <span>Arcade (Monthly)</span>
+                                    {/* <span>{resData.title} (Monthly)</span> */}
+                                    <span>
+                                        {resData ? `${resData.title} ${toggleInfo ? '(Monthly)' : '(Yearly)'
+                                            }` : 'No Plan Selected'
+                                        }
+                                    </span>
                                     <Link className="plan-link" to='/plans'>Change</Link>
                                 </div>
-                                <span className="plans-price">$9/mo</span>
+                                <span className="plans-price">
+                                    {resData.price}
+                                </span>
                             </div>
 
 
@@ -97,4 +116,9 @@ const Personal = () => {
     )
 }
 
-export default Personal
+Summary.propTypes = {
+    resData: PropTypes.object.isRequired,
+    toggleInfo: PropTypes.bool.isRequired
+}
+
+export default Summary;

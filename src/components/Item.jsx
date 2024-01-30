@@ -1,11 +1,23 @@
 import PropTypes from 'prop-types';
 // import { useState } from 'react';
 
-const Item = ({ image, title, price, discount, setActiveItem, isActive }) => {
+const Item = ({ image, title, price, discount, setActiveItem, isActive, setTestFunc }) => {
 
     const handleItemClick = () => {
+        const selectedItem = {
+            title,
+            price
+        }
         setActiveItem(title);
+
+        console.log(selectedItem);
+
+        setTestFunc(selectedItem)
+
+
     };
+
+
     return (
         <div className={`plans__item ${isActive ? 'active' : ''}`} onClick={handleItemClick}>
             <img src={image} alt={`${title}-icon`} />
@@ -23,8 +35,9 @@ Item.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     discount: PropTypes.string.isRequired,
-    isActive: PropTypes.string.isRequired,
-    setActiveItem: PropTypes.string.isRequired
+    isActive: PropTypes.bool.isRequired,
+    setActiveItem: PropTypes.func.isRequired,
+    setTestFunc: PropTypes.func.isRequired,
 };
 
 export default Item
