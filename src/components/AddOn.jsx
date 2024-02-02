@@ -1,35 +1,70 @@
 
-import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
 import AddItem from './AddItem';
 
-const AddOn = () => {
-    const [pricePlan, setPricePlan] = useState(true)
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+
+
+const AddOn = ({ addonToggle, setAddonItems }) => {
+    // const [pricePlan, setPricePlan] = useState(true)
+
+    // useEffect(() => {
+    //     console.log('in add-on', addonToggle)
+    // }, [addonToggle])
+
+    const [checkedItems, setCheckedItems] = useState([])
+
+
+    const handleCheckedItem = (item) => {
+        // Check if the item is already in the array
+        const exists = checkedItems.some((checkedItem) => checkedItem.title === item.title);
+
+        if (exists) {
+            // If exists, remove it (uncheck)
+            const updatedItems = checkedItems.filter((checkedItem) => checkedItem.title !== item.title);
+            setCheckedItems(updatedItems);
+        } else {
+            // If doesn't exist, add it (check)
+            const updatedItems = [...checkedItems, item];
+            setCheckedItems(updatedItems);
+        }
+    };
+
+    useEffect(() => {
+        setCheckedItems(checkedItems)
 
 
 
+    }, [checkedItems])
 
+    console.log('in addon', checkedItems);
+
+    setAddonItems(checkedItems)
 
 
     const addItems = [
         {
 
             title: 'Online service',
-            price: `${pricePlan ? '$1/mo' : '$10/yr'}`,
+            price: `${addonToggle ? 1 : 10}`,
+            time: `${addonToggle ? 'mo' : 'yr'}`,
             text: `Access to multiplayer games`
         },
         {
 
             title: 'Larger storage',
-            price: `${pricePlan ? '$2/mo' : '$20/yr'}`,
+            price: `${addonToggle ? 2 : 20}`,
+            time: `${addonToggle ? 'mo' : 'yr'}`,
             text: `Extra 1TB of cloud save`
         },
         {
 
             title: 'Customizable profile',
-            price: `${pricePlan ? '$2/mo' : '$20/yr'}`,
+            price: `${addonToggle ? 2 : 20}`,
+            time: `${addonToggle ? 'mo' : 'yr'}`,
             text: `Custom theme on your profile`
         }
     ]
@@ -87,6 +122,8 @@ const AddOn = () => {
                             {addItems.map((addItem, index) => (
                                 <AddItem
                                     key={index}
+                                    isChecked={checkedItems?.some((item) => item.title === addItem.title)}
+                                    setCheckedTest={() => handleCheckedItem(addItem)}
 
                                     {...addItem}
 
@@ -113,6 +150,11 @@ const AddOn = () => {
 
         </>
     )
+}
+
+AddOn.propTypes = {
+    addonToggle: PropTypes.bool.isRequired,
+    setAddonItems: PropTypes.func.isRequired
 }
 
 export default AddOn

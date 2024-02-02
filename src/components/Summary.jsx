@@ -4,15 +4,18 @@ import PropTypes from 'prop-types';
 import { useEffect } from "react";
 
 
-const Summary = ({ resData, toggleInfo }) => {
-
+const Summary = ({ resData, toggleInfo, resAddon }) => {
+    // const [timeBound, setTimeBound] = useState(null)
     useEffect(() => {
         console.log('knnuiin', resData)
 
         console.log('in summary', toggleInfo);
+
+        console.log('in sumsum', resAddon);
     })
 
-
+    const resDataPrice = parseFloat(resData.price)
+    const resTotalPrice = resDataPrice + resAddon.reduce((total, addOne) => total + parseFloat(addOne.price), 0)
     return (
         <>
             <section className='personal'>
@@ -74,26 +77,32 @@ const Summary = ({ resData, toggleInfo }) => {
                                     <Link className="plan-link" to='/plans'>Change</Link>
                                 </div>
                                 <span className="plans-price">
-                                    {resData.price}
+                                    ${resDataPrice}/{toggleInfo ? 'mo' : 'yr'}
                                 </span>
                             </div>
 
 
                             <div className="extras">
-                                <div className="first">
-                                    <span className="extras-text">Online service</span>
-                                    <span className="extras-price">+$1/mo</span>
-                                </div>
-                                <div className="second">
-                                    <span className="extras-text">Larger storage</span>
-                                    <span className="extras-price">+$2/mo</span>
-                                </div>
+                                {resAddon.map((addon, index) => (
+                                    <div key={index} className="first">
+                                        <span className="extras-text">
+                                            {addon.title}
+                                        </span>
+                                        <span className="extras-price">
+                                            ${addon.price}/{toggleInfo ? 'mo' : 'yr'}
+                                        </span>
+                                    </div>
+                                ))}
+
+
                             </div>
                         </div>
 
                         <div className="summary__container-total">
-                            <span className="total-text">Total (per month)</span>
-                            <span className="total-price">+$12/mo</span>
+                            <span className="total-text">
+                                Total{`${toggleInfo ? '(Monthly)' : '(Yearly)'}`
+                                }</span>
+                            <span className="total-price">${resTotalPrice.toFixed(2)}/{toggleInfo ? 'mo' : 'yr'}</span>
                         </div>
 
 
@@ -107,7 +116,7 @@ const Summary = ({ resData, toggleInfo }) => {
 
             </Link>
 
-            <Link to='/plans'>
+            <Link to='/appreciation'>
                 <button className="btn-summary">Confirm</button>
             </Link>
 
@@ -118,7 +127,8 @@ const Summary = ({ resData, toggleInfo }) => {
 
 Summary.propTypes = {
     resData: PropTypes.object.isRequired,
-    toggleInfo: PropTypes.bool.isRequired
+    toggleInfo: PropTypes.bool.isRequired,
+    resAddon: PropTypes.array.isRequired
 }
 
 export default Summary;

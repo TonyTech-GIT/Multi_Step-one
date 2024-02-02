@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // import { useState } from 'react';
 
-const Item = ({ image, title, price, discount, setActiveItem, isActive, setTestFunc }) => {
+const Item = ({ image, title, price, discount, setActiveItem, isActive, setTestFunc, time }) => {
 
     const handleItemClick = () => {
         const selectedItem = {
@@ -23,7 +23,7 @@ const Item = ({ image, title, price, discount, setActiveItem, isActive, setTestF
             <img src={image} alt={`${title}-icon`} />
             <div className="details">
                 <span className='title'>{title}</span>
-                <span className='price'>{price}</span>
+                <span className='price'>${price}/{time}</span>
                 <span className='discount'>{discount}</span>
             </div>
         </div>
@@ -33,11 +33,12 @@ const Item = ({ image, title, price, discount, setActiveItem, isActive, setTestF
 Item.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
     discount: PropTypes.string.isRequired,
     isActive: PropTypes.bool.isRequired,
     setActiveItem: PropTypes.func.isRequired,
     setTestFunc: PropTypes.func.isRequired,
+    time: PropTypes.string.isRequired
 };
 
 export default Item

@@ -1,12 +1,23 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const AddItem = ({ title, text, price }) => {
+const AddItem = ({ title, text, price, setCheckedTest, time }) => {
     const [isChecked, setIsChecked] = useState(false)
 
     const handleIsChecked = () => {
         setIsChecked(!isChecked)
+
+        const testText = {
+            title,
+            text,
+            price
+        }
+
+        // console.log(testText);
+
+        setCheckedTest(testText)
     }
+
     return (
 
         <div className={`addon__item ${isChecked ? 'active' : ''}`} >
@@ -19,7 +30,7 @@ const AddItem = ({ title, text, price }) => {
                 </div>
             </div>
 
-            <span className='price'>{price}</span>
+            <span className='price'>${price}/{time}</span>
         </div>
     )
 }
@@ -27,7 +38,9 @@ const AddItem = ({ title, text, price }) => {
 AddItem.propTypes = {
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    time: PropTypes.string.isRequired,
+    setCheckedTest: PropTypes.func.isRequired
 
 };
 

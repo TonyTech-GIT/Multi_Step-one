@@ -20,6 +20,7 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
 
     const [active, setActive] = useState(true)
     const [pricePlan, setPricePlan] = useState(true)
+    const [timePeriod, setTimePeriod] = useState(true)
     const [discountPlan, setDiscountPlan] = useState(true)
     const [activeItem, setActiveItem] = useState('');
     const [activeFunc, setActiveFunc] = useState('')
@@ -47,6 +48,8 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
         setActive(!active)
 
         setPricePlan(!pricePlan)
+
+        setTimePeriod(!timePeriod)
 
         setDiscountPlan(!discountPlan)
 
@@ -79,19 +82,22 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
         {
             image: arcade,
             title: 'Arcade',
-            price: `${pricePlan ? '$9/mo' : '$90/yr'}`,
+            price: `${pricePlan ? 9 : 90}`,
+            time: `${timePeriod ? 'mo' : 'yr'}`,
             discount: `${!discountPlan ? '2 months free' : ''}`
         },
         {
             image: advanced,
             title: 'Advanced',
-            price: `${pricePlan ? '$12/mo' : '$120/yr'}`,
+            price: `${pricePlan ? 12 : 120}`,
+            time: `${timePeriod ? 'mo' : 'yr'}`,
             discount: `${!discountPlan ? '2 months free' : ''}`
         },
         {
             image: pro,
             title: 'Pro',
-            price: `${pricePlan ? '$15/mo' : '$150/yr'}`,
+            price: `${pricePlan ? 15 : 150}`,
+            time: `${timePeriod ? 'mo' : 'yr'}`,
             discount: `${!discountPlan ? '2 months free' : ''}`
         }
     ]

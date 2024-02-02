@@ -78,8 +78,8 @@
   align-items: center;
 }
 
-.summary__container-checkout .extras .second {
-  margin-top: 1rem;
+.summary__container-checkout .extras .first:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .summary__container-checkout .extras .extras-text {
