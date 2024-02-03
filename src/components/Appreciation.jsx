@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 
 import ThanksImg from '../assets/images/icon-thank-you.svg'
 
@@ -68,14 +68,14 @@ const Appreciation = () => {
 
             </section>
 
-            <Link to='/add-ons' className='back-link-summary'>
+            {/* <Link to='/add-ons' className='back-link-summary'>
                 <span className='back-summary'>Go Back</span>
 
             </Link>
 
             <Link to='/plans'>
                 <button className="btn-summary">Confirm</button>
-            </Link>
+            </Link> */}
 
         </>
 

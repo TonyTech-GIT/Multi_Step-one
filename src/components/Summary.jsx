@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import PropTypes from 'prop-types';
 import { useEffect } from "react";
 
 
 const Summary = ({ resData, toggleInfo, resAddon }) => {
-    // const [timeBound, setTimeBound] = useState(null)
+    const navigate = useNavigate()
+
     useEffect(() => {
         console.log('knnuiin', resData)
 
@@ -13,6 +14,12 @@ const Summary = ({ resData, toggleInfo, resAddon }) => {
 
         console.log('in sumsum', resAddon);
     })
+
+    const handleConfirmation = () => {
+        setTimeout(() => {
+            navigate('/')
+        }, 2000)
+    }
 
     const resDataPrice = parseFloat(resData.price)
     const resTotalPrice = resDataPrice + resAddon.reduce((total, addOne) => total + parseFloat(addOne.price), 0)
@@ -116,9 +123,10 @@ const Summary = ({ resData, toggleInfo, resAddon }) => {
 
             </Link>
 
-            <Link to='/appreciation'>
-                <button className="btn-summary">Confirm</button>
+            <Link to='/appreciation' onClick={handleConfirmation}>
+                <button className="btn-summary" >Confirm</button>
             </Link>
+
 
         </>
 
