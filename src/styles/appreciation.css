@@ -1,0 +1,73 @@
+.appreciation__container {
+  background-color: var(--neutral-four);
+  height: 380px;
+  max-width: 100%;
+  width: 60%;
+
+  padding: 2rem 1rem;
+
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+
+  margin: 0 auto;
+
+  position: relative;
+  bottom: 2.58rem;
+}
+
+.appreciation__container h2 {
+  color: var(--primary-color);
+  font-weight: bold;
+
+  margin-block: 1.5rem 0.5rem;
+}
+
+.appreciation__container p {
+  /* margin-block: 1rem; */
+  color: var(--neutral-one);
+  line-height: 1.5;
+}
+
+.appreciation {
+  text-align: center;
+}
+.appreciation img {
+  width: 20%;
+}
+
+@media only screen and (min-width: 767px) {
+  .appreciation__container {
+    width: 100%;
+
+    bottom: 0rem;
+    right: 3rem;
+
+    padding: 1rem 1rem;
+  }
+
+  .appreciation__container h2 {
+    color: var(--primary-color);
+    font-weight: bold;
+
+    margin-block: 1.5rem 0.5rem;
+  }
+
+  .appreciation__container p {
+    margin-block: 1rem;
+    color: var(--neutral-one);
+    line-height: 1.5;
+  }
+  .appreciation {
+    text-align: center;
+
+    margin-block: 3rem;
+  }
+  .appreciation img {
+    width: 15%;
+
+    margin: 0 auto;
+  }
+}

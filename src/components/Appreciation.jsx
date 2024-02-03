@@ -51,11 +51,11 @@ const Appreciation = () => {
 
                         </div>
                     </div>
-                    <div className="summary__container">
-                        <h2>Finishing up</h2>
-                        <p>Double-check everything looks OK before confirming.</p>
+                    <div className="appreciation__container">
+                        {/* <h2>Finishing up</h2>
+                        <p>Double-check everything looks OK before confirming.</p> */}
                         <div className="appreciation">
-                            <img src={ThanksImg} alt="" />
+                            <img src={ThanksImg} alt="thanks-img" />
                             <h2>Thank you!</h2>
                             <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
                         </div>
