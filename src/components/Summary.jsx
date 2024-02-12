@@ -31,7 +31,7 @@ const Summary = ({ resData, toggleInfo, resAddon }) => {
                         <span>1</span>
                         <span>2</span>
                         <span>3</span>
-                        <span>4</span>
+                        <span className="four">4</span>
                     </div>
                 </div>
                 <div className="form-desk">
@@ -59,7 +59,7 @@ const Summary = ({ resData, toggleInfo, resAddon }) => {
                                 </div>
                             </div>
                             <div className="num-details">
-                                <span>4</span>
+                                <span className="four">4</span>
                                 <div>
                                     <p>STEP 4</p>
                                     <h5>SUMMARY</h5>

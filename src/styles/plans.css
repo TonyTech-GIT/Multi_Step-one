@@ -67,7 +67,7 @@
 }
 
 .plans__container .plans .plans__item:hover {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .plans__container .plans .plans__item:not(:last-child) {
@@ -75,7 +75,8 @@
 }
 
 .plans__container .plans .plans__item.active {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  background-color: var(--neutral-three);
 }
 
 .plans__container .plans .plans__item .discount {
@@ -129,6 +130,11 @@
 
 .back-link {
   color: var(--neutral-one);
+
+  transition: all 0.15s ease-in-out;
+}
+.back-link:hover {
+  color: var(--primary-color);
 }
 
 .back {
@@ -138,9 +144,31 @@
   left: 20px;
 }
 
+.plan_Btn {
+  padding: 0.6rem 1rem;
+  float: right;
+
+  margin: 1rem;
+
+  background-color: var(--primary-color);
+
+  border: none;
+  border-radius: 3px;
+
+  color: #eee;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+}
+.plan_Btn:hover {
+  opacity: 0.9;
+}
+
 @media only screen and (min-width: 767px) {
   .plans__container {
     width: 100%;
+    height: 370px;
 
     bottom: 0rem;
   }
@@ -187,7 +215,16 @@
   .back {
     position: absolute;
 
-    bottom: 2.6rem;
+    bottom: 3.8rem;
     left: 42.4rem;
+  }
+
+  .plan_Btn {
+    position: absolute;
+
+    right: 19rem;
+    bottom: 2rem;
+
+    cursor: pointer;
   }
 }

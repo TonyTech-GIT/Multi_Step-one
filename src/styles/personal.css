@@ -46,7 +46,15 @@
 .personal__bg-nums span:not(:last-child) {
   margin-right: 2rem;
 }
-.personal__bg-nums span:hover {
+/* .personal__bg-nums span:hover {
+  background-color: var(--fourth-color);
+  color: var(--primary-color);
+} */
+
+.personal__bg-nums span.one,
+.personal__bg-nums span.two,
+.personal__bg-nums span.three,
+.personal__bg-nums span.four {
   background-color: var(--fourth-color);
   color: var(--primary-color);
 }
@@ -78,9 +86,14 @@
 }
 
 .personal__form p {
-  margin-block: 1rem;
+  margin-block: 1rem 0;
   color: var(--neutral-one);
   line-height: 1.5;
+}
+
+.personal__form .labels {
+  display: flex;
+  justify-content: space-between;
 }
 
 .personal__form .field {
@@ -105,6 +118,22 @@
 
   color: var(--primary-color);
 }
+.personal__form input:invalid {
+  border-color: red;
+}
+
+.error-message {
+  display: none;
+  color: red;
+
+  font-size: 0.8rem;
+
+  padding-right: 1.8rem;
+}
+.error-message.show {
+  display: block;
+}
+
 .personal__form input::placeholder {
   color: var(--neutral-one);
 }
@@ -222,6 +251,14 @@
   }
   .desk-img div .num-details span:not(:last-child) {
     margin-bottom: 1rem;
+  }
+
+  .desk-img div .num-details span.one,
+  .desk-img div .num-details span.two,
+  .desk-img div .num-details span.three,
+  .desk-img div .num-details span.four {
+    background-color: var(--fourth-color);
+    color: var(--primary-color);
   }
 
   .desk-img div .num-details div p {

@@ -43,7 +43,7 @@
 }
 
 .addon__container .addons .addon__item:hover {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
 
   background-color: var(--neutral-three);
 }
@@ -53,7 +53,7 @@
 }
 
 .addon__container .addons .addon__item.active {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
 
   background-color: var(--neutral-three);
 }
@@ -95,6 +95,11 @@
 
 .back-link-addon {
   color: var(--neutral-one);
+
+  transition: all 0.15s ease-in-out;
+}
+.back-link-addon:hover {
+  color: var(--primary-color);
 }
 
 .back-addon {

@@ -108,7 +108,7 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
                 <div className="personal__bg">
                     <div className="personal__bg-nums">
                         <span>1</span>
-                        <span>2</span>
+                        <span className='two'>2</span>
                         <span>3</span>
                         <span>4</span>
                     </div>
@@ -124,7 +124,7 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
                                 </div>
                             </div>
                             <div className="num-details">
-                                <span>2</span>
+                                <span className='two'>2</span>
                                 <div>
                                     <p>STEP 2</p>
                                     <h5>SELECT PLAN</h5>
@@ -184,7 +184,7 @@ const Plans = ({ setSummaryDetails, setCalToggle }) => {
             </Link>
 
             <Link to='/add-ons'>
-                <button className="btn">Next Step</button>
+                <button className="plan_Btn">Next Step</button>
             </Link>
 
         </>

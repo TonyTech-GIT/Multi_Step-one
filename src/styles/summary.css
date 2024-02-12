@@ -58,6 +58,11 @@
   color: var(--neutral-one);
 
   font-size: 0.8rem;
+
+  transition: all 0.15s ease-in-out;
+}
+.summary__container-checkout .plans .info .plan-link:hover {
+  color: var(--primary-color);
 }
 
 .summary__container-checkout .plans .plans-price {
@@ -112,6 +117,11 @@
 
 .back-link-summary {
   color: var(--neutral-one);
+
+  transition: all 0.15s ease-in-out;
+}
+.back-link-summary:hover {
+  color: var(--primary-color);
 }
 
 .back-summary {

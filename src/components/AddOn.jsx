@@ -76,7 +76,7 @@ const AddOn = ({ addonToggle, setAddonItems }) => {
                     <div className="personal__bg-nums">
                         <span>1</span>
                         <span>2</span>
-                        <span>3</span>
+                        <span className='three'>3</span>
                         <span>4</span>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ const AddOn = ({ addonToggle, setAddonItems }) => {
                                 </div>
                             </div>
                             <div className="num-details">
-                                <span>3</span>
+                                <span className='three'>3</span>
                                 <div>
                                     <p>STEP 3</p>
                                     <h5>ADD-ONS</h5>
